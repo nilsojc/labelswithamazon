@@ -28,22 +28,20 @@ For this project, we will use a sample image from Orlando city.
 
 ![image](/assets/image3.png)
 
-2. **Upload files to S3 Bucket**  
-  
+2. **Install and configure AWS CLI**  
+Open the terminal for your operating system and use these commands accordingly:
 
-https://github.com/user-attachments/assets/d9005a2e-2eac-4a9d-95ea-751fafef9989
+To check if the AWS CLI (Command Line Interface) was installed successfully on your system, you can run the following command in your terminal or command prompt:
 
-After creation, it will create a S3 webpoint. In this case, it would be http://awsresume.online.s3-website-us-east-1.amazonaws.com/
+aws --version
 
-
-https://github.com/user-attachments/assets/de9ebe2f-226e-4969-9224-e5fa70143bb6
 
 <p align="center">
   <img src="https://i.imgur.com/OKDE67x.png" 
 </p>
 ---
 
-3. **Create a Cloudfront Distribution**
+3. **Importing Libraries from Python**
    
 
 https://github.com/user-attachments/assets/bf262c0b-e4f5-4af0-90fc-76cdcfdb5a05
