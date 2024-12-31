@@ -33,42 +33,37 @@ Open the terminal for your operating system and use these commands accordingly:
 
 To check if the AWS CLI (Command Line Interface) was installed successfully on your system, you can run the following command in your terminal or command prompt:
 
-aws --version
+`aws --version`
 
+Next, we will need to configure AWS CLI with command `AWS configure`. For this, we will need to set up a user in IAM with an access key and secret access key through the console so that we can execute actions and commands with our AWS account:
+![image](/assets/image5.png)
 
-<p align="center">
-  <img src="https://i.imgur.com/OKDE67x.png" 
-</p>
+After searching `IAM` in the AWS console we start creating a user:
+![image](/assets/image6.png)
+![image](/assets/image7.png)
+
+Next, after assigning a name we create permissions for our new user:
+![image](/assets/image8.png)
+
+NOTE: The permission policies that we are assigning to this user will be giving access to all AWS services. It is generally not recommended if the user will be used by someone else.
+
+Then, we click on the user and create an access key:
+![image](/assets/image9.png)
+
 ---
 
 3. **Importing Libraries from Python**
    
 
-https://github.com/user-attachments/assets/bf262c0b-e4f5-4af0-90fc-76cdcfdb5a05
+
+4. **Define Functions**
 
 
 
-After creation, a cloudfrount domain name will be created with an HTTPS resolver. In this case, the address would be https://d2ygp4l15ss99c.cloudfront.net
 
-<p align="center">
-  <img src="https://i.imgur.com/OKDE67x.png" 
-</p>
-
-4. **Create a hosted zone with Route 53 for a custom domain and create an alias record with Cloudfront**
+5. **Final code with results**
 
 
-https://github.com/user-attachments/assets/bb49c1df-014c-41a7-8bc5-08faf7d91b37
-
-<p align="center">
-  <img src="https://i.imgur.com/OKDE67x.png" 
-</p>
-Even after creating the zone and alias record for the custom domain, it will show a 443 request error. We still need to request a certificate for our new  domain, as shown below:
-
-5. **Requesting a  Public Certificate with Amazon Certificate Manager in order to resolve a HTTPS request with the custom domain**
-
-<p align="center">
-  <img src="https://i.imgur.com/OKDE67x.png" 
-</p>
 
 
  ---
