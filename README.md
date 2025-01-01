@@ -28,7 +28,7 @@ In this project, I created an image labels generator using Amazon Rekognition. W
 
 For this project, we will use a sample image from Orlando city.
 
-![image](/assets/image3.png)
+![image](/assets/orlando.jpg)
 
 2. **Install and configure AWS CLI**  
 Open the terminal for your operating system and use these commands accordingly:
@@ -97,17 +97,36 @@ Then, we will use the detect_labels function from the Rekognition client to dete
 Our detected labels will be printed along with their confidence levels, along with loading the image that we uploaded from the S3 bucket using boto3 and PIL. 
 
 ![image](/assets/image16.png)
+![image](/assets/image17.png)
 
 Finally, we use matplolib to display the image and draw bounding boxes around the detected objects.
 
-![image](/assets/image17.png)
+![image](/assets/image18.png)
 
 6. **Final code with results**
 
 We deploy a main funtion to test our detected_labels function.
 
+![image](/assets/image19.png)
 
+NOTE: Make sure that your photo and bucket string in the main function is renamed by the photo and bucket you are using. 
 
+Final code should look like this:
+
+![image](/assets/image20.png)
+![image](/assets/image21.png)
+
+Then, we open the terminal in the directory where the python file is present and run the command `python code.py`
+
+![image](/assets/image22.png)
+
+Note: Alternatively, .py file can be also opened within the python 3.12 (as of writing) framework.
+
+![image](/assets/image23.png)
+
+Lastly, it will display our desired result!
+
+![image](/assets/image24.png)
  ---
 
 <h2>Conclusion</h2>
