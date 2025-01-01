@@ -2,7 +2,7 @@
   <img src="https://i.imgur.com/OKDE67x.png" 
 </p>
   
-##  Building an image labels generator using Amazon Rekognition
+## ☁️  Building an image labels generator using Amazon Rekognition ☁️
 
 In this project, I created an image labels generator using Amazon Rekognition. With this tool, we can easily identify individual parts of an image and assign a label. For instance, if you have a photo of a high traffic environment, Amazon Recognition will be able to identify what it is, and label the image with it's parts.
 
@@ -127,8 +127,25 @@ Note: Alternatively, .py file can be also opened within the python 3.12 (as of w
 Lastly, it will display our desired result!
 
 ![image](/assets/image24.png)
+
+**(Optional) Side Project**
+
+I wanted to keep dabbling into Amazon Rekognition to make it detect the labels with either videos or .gif files. For videos, you can use Amazon Kinesis to point out a stream and create them in real time, though I suspect it is not Free tier. However, you can make it upload a gif to the bucket and create image labels frame by frame on a .gif file, with dependency `OpenCV`. code file was:
+
+`def detect_labels_per_frame(photo, bucket):
+    """Detect labels for each frame of a GIF."""
+    s3 = boto3.resource('s3')
+    obj = s3.Object(bucket, photo)
+    gif_data = obj.get()['Body'].read()`
+
+As a sample you can find the other .py file on the repository, as there are other changes to this file. The result for this instance will be as it follows:
+
+![image](/assets/gif1.png)
+![image](/assets/gif2.png)
+![image](/assets/gif3.png)
+    
  ---
 
 <h2>Conclusion</h2>
-This projects demostrates a real-world scenario where we can create a website hosted with an S3 bucket utilizing AWS. In this example we also utilized .HTML and .CSS files to load our resume file into the bucket. By utilizing secure dns protocols and traffic through Route 53 and Cloudfront, we made sure that our website is fully compliant and accessible, as well as providing our own custom domain. This project was made with AWS free tier on all tools except for Route 53, where creating hosted zones has a cost as well. You can add a CNAME to a Cloudfront endpoint address using godaddy instead if you wish to cut on costs. Note that CNAMEs are not available at the root (apex) of the domain, so unless godaddy provides a CNAME flattening service (equivalent to Alias) you can only set it on a subdomain. There is also a cost in purchasing a third party domain or inside AWS. With this feature, you can utilize both without issues.
+This project made use of an image label generator by calling boto3 API into images uploaded with a S3 bucket combined with Amazon Rekognition. With this feature, you can identify individual parts of an object along with it's closest (defined by confident percentage) label definition. Alternatively, this tool can be used for Labels on Video Streams (Amazon Kinesis) or generated frame by frame with a gif file. 
 ☁️
