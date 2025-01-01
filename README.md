@@ -15,6 +15,8 @@ In this project, I created an image labels generator using Amazon Rekognition. W
   - Python
   - Amazon Rekognition
   - IAM
+  - Visual Code
+  - boto3
   
   
 <h2>How to Build</h2>
@@ -50,19 +52,59 @@ NOTE: The permission policies that we are assigning to this user will be giving 
 Then, we click on the user and create an access key:
 ![image](/assets/image9.png)
 
+When prompted, choose CLI and check on the confirmation box as well as next.
+![image](/assets/image10.png)
+It will then generate an access key and secret key. These keys can be used to access your AWS services so make sure these are kept confidential. Then, we go back to the terminal to input the keys:
+![image](/assets/image11.png)
+NOTE: Make sure the region of the S3 bucket and the CLI region on terminal matches.
+
 ---
 
 3. **Importing Libraries from Python**
-   
+   In this step, we will write the python code for extracting pictures from S3 bucket and applying detect_labels operation from Rekognition to generate the labels with their confidence score.
+
+   We first begin utilizing Visual Code (or any IDE of your liking) in order to create a .py file so that we can perform our coding.
+
+   ![image](/assets/image12.png)
+
+   On our terminal, we will install the libraries needed for the project:
+-  `pip install boto3`
+-  `pip install matplotlib`
+
+For our code, we will need to import the following libraries:
+- boto3 for interacting with AWS services.
+- matplotlib for visualization.
+- PIL (Python Imaging Library) for handling image data.
+- BytesIO from the io module to work with image data.
+
+We proceed by adding our code to the .py that we created:
+
+![image](/assets/image13.png)
 
 
-4. **Define Functions**
+5. **Define Functions**
 
+In this step we will define a function called detect_labels. This function takes a photo and bucket name as input parameters.
 
+Within the function we will create a Rekognition client using boto3.
 
+![image](/assets/image14.png)
 
-5. **Final code with results**
+Then, we will use the detect_labels function from the Rekognition client to detect labels in the given photo.
 
+![image](/assets/image15.png)
+
+Our detected labels will be printed along with their confidence levels, along with loading the image that we uploaded from the S3 bucket using boto3 and PIL. 
+
+![image](/assets/image16.png)
+
+Finally, we use matplolib to display the image and draw bounding boxes around the detected objects.
+
+![image](/assets/image17.png)
+
+6. **Final code with results**
+
+We deploy a main funtion to test our detected_labels function.
 
 
 
