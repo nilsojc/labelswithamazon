@@ -35,7 +35,9 @@ Open the terminal for your operating system and use these commands accordingly:
 
 To check if the AWS CLI (Command Line Interface) was installed successfully on your system, you can run the following command in your terminal or command prompt:
 
+```
 `aws --version`
+```
 
 Next, we will need to configure AWS CLI with command `AWS configure`. For this, we will need to set up a user in IAM with an access key and secret access key through the console so that we can execute actions and commands with our AWS account:
 ![image](/assets/image5.png)
@@ -68,9 +70,11 @@ NOTE: Make sure the region of the S3 bucket and the CLI region on terminal match
    ![image](/assets/image12.png)
 
    On our terminal, we will install the libraries needed for the project:
--  `pip install boto3`
+   ```
+.-  `pip install boto3`
 -  `pip install matplotlib`
-
+   ```
+   
 For our code, we will need to import the following libraries:
 - boto3 for interacting with AWS services.
 - matplotlib for visualization.
@@ -132,11 +136,13 @@ Lastly, it will display our desired result!
 
 I wanted to keep dabbling into Amazon Rekognition to make it detect the labels with either videos or .gif files. For videos, you can use Amazon Kinesis to point out a stream and create them in real time, though I suspect it is not Free tier. However, you can make it upload a gif to the bucket and create image labels frame by frame on a .gif file, with dependency `OpenCV`. code file was:
 
+```
 `def detect_labels_per_frame(photo, bucket):
     """Detect labels for each frame of a GIF."""
     s3 = boto3.resource('s3')
     obj = s3.Object(bucket, photo)
     gif_data = obj.get()['Body'].read()`
+```
 
 As a sample you can find the other .py file on the repository, as there are other changes to this file. The result for this instance will be as it follows:
 
